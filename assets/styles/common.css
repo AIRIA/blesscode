@@ -1,0 +1,29 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+global
+{
+	chromeColor: #294867;
+	color: #CEE7F4;
+	contentBackgroundColor: #39628C;
+	symbolColor: #000000;
+	rollOverColor: #355D89;
+	selectionColor: #294867;
+	focusColor: #333300;
+	accentColor: #6589AD;
+	font-size:13px;
+	font-family:"微软雅黑";
+}
+
+mx|ToolTip{
+	font-size:13px;
+	corner-radius:3;
+	background-alpha:0.8;
+	paddingTop:1px;
+	paddingBottom:1px;
+	color:'0x808080';
+	borderColor:'0x333333';
+	borderStyle:solid;
+	background-color:'0xFFFFFF';
+}

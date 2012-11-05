@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+DockLayer层的 右侧Dock工具条
+-->
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
+		  xmlns:s="library://ns.adobe.com/flex/spark"
+		  xmlns:mx="library://ns.adobe.com/flex/mx"
+		  horizontalAlign="right" verticalCenter="0"
+		  gap="0" right="0">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Image source="assets/images/dock/dock_top_right.png"/>
+	<s:BorderContainer width="65" height="200" borderWeight="0" borderVisible="false"
+					   backgroundImage="@Embed(source='assets/images/dock/dock_middle_right.png')"/>
+	<s:Image source="assets/images/dock/dock_bottom_right.png"/>
+</s:VGroup>

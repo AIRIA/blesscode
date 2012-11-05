@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+桌面图标组件
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 mouseOut="mouseOutHandler(event)" mouseOver="mouseOverHandler(event)"
+		 fontSize="12" width="74" fontFamily="宋体">
+	<fx:Script>
+		<![CDATA[
+			import spark.filters.DropShadowFilter;
+			[Bindable]
+			/**
+			 * 桌面图标下面的文字
+			 */
+			public var iconName:String;
+			[Bindable]
+			/**
+			 * 桌面图表的Icon路径
+			 */
+			public var iconImage:Object;
+			
+			private function mouseOverHandler(event:MouseEvent):void
+			{
+				iconBgLayer.visible = true;
+			}
+			
+			private function mouseOutHandler(event:MouseEvent):void
+			{
+				iconBgLayer.visible = false;
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+		<s:DropShadowFilter id="labelDropShadowFilter" distance="2" angle="5" blurX="10" blurY="1"/>
+	</fx:Declarations>
+	<s:Group visible="false" width="{iconGroup.width}" height="{iconGroup.height}" id="iconBgLayer">
+		<s:Rect radiusX="2" radiusY="2" width="100%" height="100%">
+			<s:fill>
+				<s:SolidColor color="#FFFFFF" alpha="0.4"/>
+			</s:fill>
+			<s:stroke>
+				<s:SolidColorStroke color="#4777D3" alpha="0.5"/>
+			</s:stroke>
+		</s:Rect>
+		<s:Rect radiusX="2" radiusY="2" left="1" right="1" top="1" bottom="1">
+			<s:stroke>
+				<s:SolidColorStroke color="#FFFFFF" alpha="0.5"/>
+			</s:stroke>
+		</s:Rect>
+	</s:Group>
+	<s:VGroup id="iconGroup" color="#FFFFFF" width="100%" horizontalAlign="center" gap="2" 
+			  verticalAlign="middle" paddingBottom="5" paddingLeft="3" paddingRight="3" paddingTop="3">
+		<s:Image width="38" height="38" scaleMode="letterbox" source="{iconImage}"/>
+		<s:Label filters="{[new spark.filters.DropShadowFilter(2,90,0x000000,1,8,2)]}" textAlign="center" text="{iconName}" width="100%"/>
+	</s:VGroup>
+</s:Group>

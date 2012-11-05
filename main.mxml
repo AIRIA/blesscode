@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	整个应用程序一共分为5层
+	1.背景层
+	2.桌面图标显示区域
+	3.Dock工具条层
+	4.内容显示层
+	5.任务栏层
+-->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:components="com.blessos.components.*"
+			   width="100%" height="100%" minWidth="955" minHeight="600" backgroundColor="0x379ECD" 
+			   creationComplete="initApp(event)" preloader="com.blessos.components.BlessPreloader"
+			   frameRate="24">
+	<fx:Script>
+		<![CDATA[
+			import com.blessos.scripts.ImageAsset;
+			import com.greensock.TweenLite;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<fx:Style source="assets/styles/common.css"/>
+	<fx:Script source="com/blessos/scripts/main.as"/>
+    <!--背景层-->
+	<s:Group width="100%" height="100%" id="bgLayer">
+		<s:Image alpha="0" complete="TweenLite.to(bgImg, 1, {alpha:1});" id="bgImg" 
+				 scaleMode="stretch" width="100%" height="{bgImg.width*3/4}" source="assets/images/wallpaper/3.jpg"/>
+	</s:Group>
+	<!-- 桌面图标显示区域 -->
+	<s:Group width="100%" height="100%" id="deskIconLayer">
+		<s:layout>
+			<s:TileLayout rowHeight="80" horizontalGap="1" orientation="columns" paddingLeft="3" paddingRight="3" paddingTop="5" />
+		</s:layout>
+		<components:DeskIcon iconName="我的文档" iconImage="{ImageAsset.desk_document}"/>
+		<components:DeskIcon iconName="我的电脑" iconImage="{ImageAsset.desk_computer}"/>
+		<components:DeskIcon iconName="回收站" iconImage="{ImageAsset.desk_trash}"/>
+		<components:DeskIcon iconName="新建文件夹" iconImage="{ImageAsset.desk_folder}"/>
+	</s:Group>
+	<!-- Dock工具条显示层 -->
+	<s:Group width="100%" height="100%" id="dockLayer">
+		<components:DockBar />
+	</s:Group>
+	<!-- 窗口显示区域 -->
+	<s:Group width="100%" height="100%" id="windowLayer">
+		<components:BasePanel width="500" title="我的电脑" height="400" horizontalCenter="0" verticalCenter="0">
+			<s:Button label="Fuck Button" />
+			<components:controlBarContent>
+				<s:Button buttonMode="true" label="ControlButton" />
+				<s:Button label="ControlButton" />
+				<s:Button label="ControlButton" />
+			</components:controlBarContent>
+		</components:BasePanel>
+	</s:Group>
+	<!-- 任务栏和开始菜单显示区域 -->
+	<s:Group width="100%" height="100%" id="taskLayer">
+		<components:TaskBar />
+	</s:Group>
+</s:Application>
