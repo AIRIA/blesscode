@@ -16,7 +16,7 @@ public function initApp(event:Event=null):void{
  */
 public function deskIconLayerInit():void{
 	//在鼠标按下的时候 注册mouseMove事件 
-	this.addEventListener(MouseEvent.MOUSE_DOWN,startDrawHandler,true);
+	deskIconLayer.addEventListener(MouseEvent.MOUSE_DOWN,startDrawHandler);
 	this.addEventListener(MouseEvent.MOUSE_UP,endDrawHandler,true);
 }
 protected function startDrawHandler(event:MouseEvent):void{

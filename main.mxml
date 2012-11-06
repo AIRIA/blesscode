@@ -29,22 +29,23 @@
 				 scaleMode="stretch" width="100%" height="{bgImg.width*3/4}" source="assets/images/wallpaper/3.jpg"/>
 	</s:Group>
 	<!-- 桌面图标显示区域 -->
-	<s:Group width="100%" height="100%" id="deskIconLayer">
+	<s:BorderContainer width="100%" height="100%" borderVisible="false" backgroundAlpha="0" id="deskIconLayer">
 		<s:layout>
-			<s:TileLayout rowHeight="80" horizontalGap="1" orientation="columns" paddingLeft="3" paddingRight="3" paddingTop="5" />
+			<s:TileLayout rowHeight="80" horizontalGap="1" orientation="columns" paddingBottom="45" paddingLeft="3" paddingRight="3" paddingTop="5" />
 		</s:layout>
 		<components:DeskIcon iconName="我的文档" iconImage="{ImageAsset.desk_document}"/>
 		<components:DeskIcon iconName="我的电脑" iconImage="{ImageAsset.desk_computer}"/>
 		<components:DeskIcon iconName="回收站" iconImage="{ImageAsset.desk_trash}"/>
 		<components:DeskIcon iconName="新建文件夹" iconImage="{ImageAsset.desk_folder}"/>
-	</s:Group>
+		
+	</s:BorderContainer>
 	<!-- Dock工具条显示层 -->
 	<s:Group width="100%" height="100%" id="dockLayer">
 		<components:DockBar />
 	</s:Group>
 	<!-- 窗口显示区域 -->
 	<s:Group width="100%" height="100%" id="windowLayer">
-		<components:BasePanel width="500" title="我的电脑" height="400" horizontalCenter="0" verticalCenter="0">
+		<components:BasePanel maxsizeEnable="false" width="500" title="我的电脑" height="400" horizontalCenter="0" verticalCenter="0">
 			<s:Button label="Fuck Button" />
 			<components:controlBarContent>
 				<s:Button buttonMode="true" label="ControlButton" />
